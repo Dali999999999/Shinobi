@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Quiz App</title>
+</head>
+<body>
+    <div id="app">
+        <div id="pb"></div>
+        <h1 id="titre">
+            Voyons voir si tu survivra dans l'univers des Shinobi...!!!
+        </h1>
+        <div id="message-container" class="overlay-text"></div>
+        <div id="progress-bar-container">
+            <div id="progress-bar"></div>
+        </div>
+        <div class="image-container">
+            <div class="image-wrapper">
+                <img src="background.jpeg" id="image1" class="responsive-image" data-back-image="">
+            </div>
+            <div class="image-wrapper">
+                <img src="background.jpeg" id="image2" class="responsive-image" data-back-image="">
+            </div>
+            <div class="image-wrapper">
+                <img src="background.jpeg" id="image3" class="responsive-image" data-back-image="">
+            </div>
+        </div>
+    </div>
+    <div id="vertical-progress-bar-container">
+        <div id="vertical-progress-bar"></div>
+    </div>
+    <button id="bt">Commencer</button>
+    <audio id="musique" src="son.mp3"></audio>
+    <script type="module" src="/main.js"></script>
+    <script type="module" src="/main2.js"></script>
+</body>
+</html>
