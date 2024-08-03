@@ -267,6 +267,25 @@ function updateProgressBar(pourcentage) {
 }
 //#
 let clbut = 0;
+document.addEventListener('DOMContentLoaded', function() {
+    const boutonCommencer = document.getElementById('bt');
+
+    boutonCommencer.addEventListener('click', function() {
+        console.log("Le jeu a commencé !");
+        // Ajoute ici le code pour démarrer le jeu
+    });
+
+    // Ajouter un événement utilisateur pour déclencher le mode plein écran
+    document.body.addEventListener('click', function() {
+        if (document.fullscreenElement) {
+            document.exitFullscreen();
+        } else {
+            document.documentElement.requestFullscreen();
+        }
+    }, { once: true }); // L'événement ne se déclenchera qu'une seule fois
+});
+
+
 const bouton = document.querySelector('#bt');
 bouton.addEventListener('click', function(){
     musique.play();
