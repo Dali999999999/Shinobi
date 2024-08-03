@@ -1,0 +1,259 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+html{
+    background-image: url(fond.jpg);
+    background-size: contain;
+    background-position: center;
+    background-attachment: fixed
+}
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: calc(100% - 100px); /* Ajustement pour ne pas couvrir les boutons */
+}
+
+#titre {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    visibility: hidden; /* Garder les images cachées au début */
+    transition: opacity 0.5s ease;
+}
+
+.image-wrapper {
+    position: relative;
+    display: inline-block;
+    margin: 10px;
+    perspective: 1000px; /* Permet de voir l'effet 3D du retournement */
+    width: calc(33.33% - 20px);
+}
+
+.responsive-image {
+    width: 300px;
+    height: 400px;
+    cursor: pointer;
+    position: relative;
+    transform-style: preserve-3d; /* Assure que le retournement se fait en 3D */
+    transition: transform 0.6s;
+}
+
+.responsive-image .front,
+.responsive-image .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.responsive-image .back {
+    transform: rotateY(180deg);
+}
+
+.responsive-image.flipped {
+    transform: rotateY(180deg);
+}
+
+@media (max-width: 768px) {
+    .responsive-image {
+        width: 45%;
+    }
+}
+
+@media (max-width: 480px) {
+    .responsive-image {
+        width: 90%;
+    }
+}
+
+button {
+    position: fixed;
+    bottom: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+#vertical-progress-bar-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 50px;
+    height: 80%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-start; /* Aligne les éléments enfants au sommet du conteneur */
+}
+
+#vertical-progress-bar {
+    width: 100%;
+    height: 100%; /* Hauteur complète du conteneur */
+    background-color: #4CAF50; /* Couleur initiale de la barre de vie */
+    border-radius: 5px;
+    transition: height 0.3s, background-color 0.3s;
+    position: absolute;
+    bottom: 0;
+}
+
+#progress-bar-container {
+    width: 90%;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 10px;
+    background-color: #4CAF50;
+    border-radius: 5px;
+    transition: width 0.3s;
+}
+ .overlay-text {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            display: none; /* Initialement caché */
+            z-index: 10; /* Assure que le texte est au-dessus des images */
+        }
+
+
+.dialog {
+  background-image: url(perte.jpeg);
+  height: 60%;
+  width: 40%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.dialog h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-left: 35%;
+}
+
+.dialog p {
+  font-size: 200%;
+  margin-bottom: 20px;
+}
+
+#retry-button {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 40%;
+}
+
+#retry-button:hover {
+  background-color: #3e8e41;
+}
+
+.felicitation {
+  height: 50%;
+  width: 40%;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.felicitation h2 {
+  color: #333;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.felicitation p {
+  color: #666;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.felicitation button {
+  margin-right: 60%;   
+  margin-left: 60%;
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.felicitation button:hover {
+  background-color: #3e8e41;
+}
+
+@keyframes felicitation {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+    .image-wrapper {
+        width: calc(50% - 20px);
+    }
+}
+
+@media (max-width: 480px) {
+    .image-wrapper {
+        width: calc(100% - 20px);
+    }
+}
